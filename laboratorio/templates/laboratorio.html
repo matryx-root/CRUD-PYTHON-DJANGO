@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Laboratorios</title>
+</head>
+<body>
+    <h1>Listado de Laboratorios</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>País</th>
+        </tr>
+        {% for laboratorio in laboratorios %}
+        <tr>
+            <td>{{ laboratorio.id }}</td>
+            <td>{{ laboratorio.nombre }}</td>
+            <td>{{ laboratorio.ciudad }}</td>
+            <td>{{ laboratorio.pais }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

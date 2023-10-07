@@ -1,0 +1,31 @@
+{% extends 'laboratorio/base.html' %}
+
+
+
+
+{% block title %}
+    Insertar Laboratorio
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+    <h2>Ingresar los Datos del Laboratorio</h2>
+    <form method="post">
+        {% csrf_token %}
+    
+        {{ form.as_p }}
+    
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+  
+
+    <p class="mt-3"><a href="{% url 'laboratorio:home' %}" class="btn btn-secondary">Cancelar</a></p>
+</div>
+</div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,39 @@
+{% extends 'laboratorio/base.html' %}
+
+{% block title %}
+    Mostrar Laboratorios
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Información de Laboratorios</h2>
+    <table class="table table-striped mt-3">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">País</th>
+            {% if user.is_authenticated %}
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+            {% endif %} 
+        </tr>
+        {% for laboratorio in laboratorios %}
+        <tr>
+            <td>{{ laboratorio.id }}</td>
+            <td>{{ laboratorio.nombre }}</td>
+            <td>{{ laboratorio.ciudad }}</td>
+            <td>{{ laboratorio.pais }}</td>
+            {% if user.is_authenticated %}
+            <td><a href="{% url 'laboratorio:editar_laboratorio' laboratorio.id %}">Editar</a></td>
+            <td><a href="{% url 'laboratorio:eliminar' laboratorio.id %}">Eliminar</a></td>
+            {% endif %} 
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+    <p><a href="{% url 'laboratorio:home' %}">Volver a la página de inicio</a></p>
+
+    <p>Usted ha visitado esta página número {{ contador_visitas }} de veces.</p>
+{% endblock %}

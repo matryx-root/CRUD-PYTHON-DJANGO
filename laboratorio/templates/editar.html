@@ -1,0 +1,39 @@
+{% extends 'laboratorio/base.html' %}
+
+
+
+{% block title %}
+    Actualizar Laboratorio
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+    <h2 class="mb-4">Actualizar Laboratorio</h2>
+
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+            {{ form.nombre }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.ciudad.id_for_label }}">Ciudad:</label>
+            {{ form.ciudad }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.pais.id_for_label }}">Pais:</label>
+            {{ form.pais }}
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    
+    <p class="mt-3"><a href="{% url 'laboratorio:home' %}" class="btn btn-secondary">Cancelar</a></p>
+
+</div>
+</div>
+</div>
+{% endblock %}
